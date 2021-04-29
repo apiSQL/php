@@ -1,6 +1,7 @@
 <?php
 
 // https://apisql.github.io/php/
+// curl https://php.apisql.com/api_sql.php --output api_sql.php
 
 /**
  * @param String $uri
@@ -18,11 +19,6 @@ function api_sql(String $uri, string $sql, $callback)
     while ($item = $query->fetch()) {
         $callback($item);
     }
-//    $query = $conn->prepare($sql);
-//    $query->execute();
-//    return $conn->query($sql);
-//    return $query;
-    //$query->fetch();
 }
 
 /**
