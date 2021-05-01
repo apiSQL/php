@@ -4,11 +4,12 @@
 // curl https://php.apisql.com/api_sql.php --output api_sql.php
 
 /**
- * @param String $uri
+ * @param string $uri
  * @param string $sql
  * @param $callback
+ * @return array
  */
-function api_sql(String $uri, string $sql, $callback)
+function api_sql($uri, $sql, $callback = null)
 {
     //'sqlite:db.sqlite3'
     $conn = new PDO($uri);
