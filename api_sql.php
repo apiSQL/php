@@ -16,9 +16,14 @@ function api_sql(String $uri, string $sql, $callback)
 
     $query = $conn->prepare($sql);
     $query->execute();
-    while ($item = $query->fetch()) {
-        $callback($item);
+
+    if (is_callable($callback)) {
+        while ($item = $query->fetch()) {
+            $callback($item);
+        }
     }
+
+    return $query->fetchAll();
 }
 
 /**
